@@ -1,0 +1,94 @@
+# примеры API-запросов
+
+@baseUrl = http://127.0.0.1:8000/api
+
+# получение объявлений
+GET {{baseUrl}}/advertisements/
+Content-Type: application/json
+Authorization: Token 93c05bf949454a46b68cbbaaccd5b5389f661b77
+
+###
+
+# получение объявлений
+GET {{baseUrl}}/advertisements/favorites/
+Content-Type: application/json
+Authorization: Token 93c05bf949454a46b68cbbaaccd5b5389f661b77
+
+###
+
+# получение объявлений
+GET {{baseUrl}}/advertisements/favorites/
+Content-Type: application/json
+Authorization: Token 290ba168dc1579f67da128540e3c8ab3096efdc4
+
+###
+
+# создание объявления
+POST {{baseUrl}}/advertisements/
+Content-Type: application/json
+Authorization: Token 93c05bf949454a46b68cbbaaccd5b5389f661b77
+
+{
+  "title": "Шкаф IKEA",
+  "description": "Срочно"
+}
+
+###
+
+# создание объявления
+POST {{baseUrl}}/advertisements/11/del_favorites/
+Content-Type: application/json
+Authorization: Token 93c05bf949454a46b68cbbaaccd5b5389f661b77
+
+###
+
+# создание объявления
+POST {{baseUrl}}/advertisements/12/add_favorites/
+Content-Type: application/json
+Authorization: Token 93c05bf949454a46b68cbbaaccd5b5389f661b77
+
+###
+
+# попытка поменять объявление
+PATCH {{baseUrl}}/advertisements/11/
+Content-Type: application/json
+Authorization: Token 93c05bf949454a46b68cbbaaccd5b5389f661b77
+
+{
+  "description": "Срочно"
+}
+
+###
+
+# попытка поменять объявление
+PATCH {{baseUrl}}/advertisements/11/
+Content-Type: application/json
+Authorization: Token 290ba168dc1579f67da128540e3c8ab3096efdc4
+
+{
+  "status": "OPEN"
+}
+
+###
+
+# попытка удалить объявление
+DELETE {{baseUrl}}/advertisements/8/
+Authorization: Token 93c05bf949454a46b68cbbaaccd5b5389f661b77
+
+###
+
+# фильтрация по создателю
+GET {{baseUrl}}/advertisements/?creator=2
+Content-Type: application/json
+
+###
+
+# фильтрация по дате
+GET {{baseUrl}}/advertisements/?created_at_before=2024-10-01
+Content-Type: application/json
+
+###
+
+# фильтрация по дате
+GET {{baseUrl}}/advertisements/?created_at_after=2024-06-05&created_at_before=2024-06-06&creator=1
+Content-Type: application/json
